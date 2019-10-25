@@ -19,15 +19,15 @@
           <section class="my-pay">
               <router-link :to="{ name: ''}">
                   <span class="icon2-money"></span>
-                  <p>代付款</p>
+                  <p>积分</p>
               </router-link>
               <router-link :to="{ name: ''}">
                   <span class="icon2-thecar"></span>
-                  <p>待收货</p>
+                  <p>优惠券</p>
               </router-link>
               <router-link :to="{ name: ''}">
                   <span class="icon2-fixed"></span>
-                  <p>退换修</p>
+                  <p>余额</p>
               </router-link>
 
           </section>
@@ -64,14 +64,14 @@
                     <span>服务中心</span><i class="icon-go"></i>
                   </p>
               </router-link>
-              <router-link class="my-service-bottom" :to="{ name: ''}">
-                  <div>
-                    <span class="icon2-milogo"></span>
-                  </div>
-                  <p>
-                    <span>电商之家</span><i class="icon-go"></i>
-                  </p>
-              </router-link>
+              <!--<router-link class="my-service-bottom" :to="{ name: ''}">-->
+                  <!--<div>-->
+                    <!--<span class="icon2-milogo"></span>-->
+                  <!--</div>-->
+                  <!--<p>-->
+                    <!--<span>电商之家</span><i class="icon-go"></i>-->
+                  <!--</p>-->
+              <!--</router-link>-->
           </section>
 
           <section class="my-settle">
