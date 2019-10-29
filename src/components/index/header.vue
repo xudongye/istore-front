@@ -2,7 +2,7 @@
 
   <mt-header title="狂欢购">
 
-  <router-link :to="{name:''}" slot="right">
+  <router-link :to="{name:'搜索页'}" slot="right">
     <mt-button icon="search"></mt-button>
   </router-link>
 </mt-header>
