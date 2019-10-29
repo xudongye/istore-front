@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="search">
-    <mt-search v-model="value" cancel-text="取消" @keyup.enter.native="search" placeholder="搜索"></mt-search>
+    <mt-search v-model="value" cancel-text="取消" @keyup.enter.native="search()" placeholder="搜索"></mt-search>
     <div class="history" v-if="words.length > 0">
-      <div class="title"><span>搜索历史</span><span class="rubish" @click="remove"></span></div>
+      <div class="title"><span>搜索历史</span><span class="rubish" @click="remove()"></span></div>
       <div class="word">
         <div v-for="(item,index) in words">{{item}}</div>
       </div>
@@ -21,8 +21,15 @@ export default {
   },
   methods: {
     search() {
-      this.words.push(this.value);
-      localStorage.setItem("words", JSON.stringify(this.words));
+      let _this = this
+      let word = this.value
+      if (word) {
+        let isHave = this.words.indexOf(word)
+        if (isHave === -1) {
+          _this.words.push(word)
+          localStorage.setItem("words", JSON.stringify(_this.words))
+        }
+      }
     },
     remove() {
       this.words = []
@@ -30,7 +37,11 @@ export default {
     }
   },
   mounted() {
-    this.words = JSON.parse(localStorage.getItem("words"))
+    let words = localStorage.getItem("words")
+    if (words) {
+      this.words = JSON.parse(words)
+    }
+    console.log(this.value, this.words)
   }
 }
 
@@ -65,7 +76,7 @@ export default {
 }
 
 .word {
-  width: 100%;
+  width: 90%;
 }
 
 .word div {
