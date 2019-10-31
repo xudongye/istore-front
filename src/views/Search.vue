@@ -7,6 +7,21 @@
         <div v-for="(item,index) in words">{{item}}</div>
       </div>
     </div>
+    <div class="content">
+      <div class="conditions">
+        <div class="condition" :class="{'sortType':sortType === index}" @click="sortTypes(item,index)" v-for="(item,index) in conditions">{{item.name}}</div>
+      </div>
+      <router-link class="goods-list" :to="{ name: '详情页'}">
+        <div class="goods-item" v-for="(item,index) in goods" @click="">
+          <div class="goods-image"><img :src="item.imageUrl"></div>
+          <div class="gooos-descr">
+            <div class="goods-title">{{item.name}}</div>
+            <div class="goods-price">￥{{item.price}}</div>
+            <div class="goods-sale">销量{{item.sale}}</div>
+          </div>
+        </div>
+      </router-link>
+    </div>
   </div>
 </template>
 <script>
@@ -16,7 +31,98 @@ export default {
   data() {
     return {
       value: '',
-      words: []
+      words: [],
+      conditions: [{
+        id: 1,
+        name: '综合',
+        status: 0
+      }, {
+        id: 2,
+        name: '销量',
+        status: 0
+      }, {
+        id: 3,
+        name: '价格',
+        status: 0
+      }, {
+        id: 1,
+        name: '筛选',
+        status: 0
+      }],
+      sortType: 0,
+      goods: [{
+        id: 1,
+        name: 'PREDATOR 19.4 TF 足球鞋',
+        imageUrl: 'https://img.adidas.com.cn/resources/2019/6/10/15601573119544487_500X500.jpg',
+        price: 699.00,
+        sale: 111
+      }, {
+        id: 1,
+        name: 'PREDATOR 19.1 FG 足球运动鞋',
+        imageUrl: 'https://img.adidas.com.cn/resources/2019/9/12/15682668291993715.jpg',
+        price: 699.00,
+        sale: 111
+      }, {
+        id: 1,
+        name: 'TYPE O-1S 经典鞋',
+        imageUrl: 'https://img.adidas.com.cn/resources/2019/8/29/15670480894218718_500X500.jpg',
+        price: 699.00,
+        sale: 111
+      }, {
+        id: 1,
+        name: 'PULSEBOOST HD GUARD W 跑步运动鞋',
+        imageUrl: 'https://img.adidas.com.cn/resources/2019/10/30/15724350857397013.jpg?x-oss-process=image/resize,m_pad,w_500,h_500,limit_0,color_ffffff',
+        price: 699.00,
+        sale: 111
+      },{
+        id: 1,
+        name: '足球运动鞋足球运动鞋足球运动鞋足球运动鞋',
+        imageUrl: 'https://img.adidas.com.cn/resources/2019/6/10/15601573119544487_500X500.jpg',
+        price: 699.00,
+        sale: 111
+      }, {
+        id: 1,
+        name: 'PREDATOR 19.1 FG 足球运动鞋',
+        imageUrl: 'https://img.adidas.com.cn/resources/2019/9/12/15682668291993715.jpg',
+        price: 699.00,
+        sale: 111
+      }, {
+        id: 1,
+        name: 'TYPE O-1S 经典鞋',
+        imageUrl: 'https://img.adidas.com.cn/resources/2019/8/29/15670480894218718_500X500.jpg',
+        price: 699.00,
+        sale: 111
+      }, {
+        id: 1,
+        name: 'PULSEBOOST HD GUARD W 跑步运动鞋',
+        imageUrl: 'https://img.adidas.com.cn/resources/2019/10/30/15724350857397013.jpg?x-oss-process=image/resize,m_pad,w_500,h_500,limit_0,color_ffffff',
+        price: 699.00,
+        sale: 111
+      },{
+        id: 1,
+        name: '足球运动鞋足球运动鞋足球运动鞋足球运动鞋',
+        imageUrl: 'https://img.adidas.com.cn/resources/2019/6/10/15601573119544487_500X500.jpg',
+        price: 699.00,
+        sale: 111
+      }, {
+        id: 1,
+        name: 'PREDATOR 19.1 FG 足球运动鞋',
+        imageUrl: 'https://img.adidas.com.cn/resources/2019/9/12/15682668291993715.jpg',
+        price: 699.00,
+        sale: 111
+      }, {
+        id: 1,
+        name: 'TYPE O-1S 经典鞋',
+        imageUrl: 'https://img.adidas.com.cn/resources/2019/8/29/15670480894218718_500X500.jpg',
+        price: 699.00,
+        sale: 111
+      }, {
+        id: 1,
+        name: 'PULSEBOOST HD GUARD W 跑步运动鞋',
+        imageUrl: 'https://img.adidas.com.cn/resources/2019/10/30/15724350857397013.jpg?x-oss-process=image/resize,m_pad,w_500,h_500,limit_0,color_ffffff',
+        price: 699.00,
+        sale: 111
+      }]
     }
   },
   methods: {
@@ -34,6 +140,9 @@ export default {
     remove() {
       this.words = []
       localStorage.removeItem("words");
+    },
+    sortTypes(item, index) {
+      this.sortType = index
     }
   },
   mounted() {
@@ -89,6 +198,73 @@ export default {
   color: #4f4f4f;
   border-radius: 3vw;
   background-color: #f0f0f0;
+}
+
+.content {
+  width: 100%;
+}
+
+.conditions {
+  width: 100%;
+  text-align: center;
+  margin-top: 1vh;
+}
+
+.condition {
+  display: inline-block;
+  width: 23%;
+  text-align: center;
+  font-size: 4vw;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.sortType {
+  color: red;
+}
+
+.goods-list {
+  width: 100%;
+}
+
+.goods-item {
+  width: 100%;
+  height: 20vh;
+  margin-top: 5vh;
+}
+
+.goods-image {
+  width: 30%;
+  float: left;
+  margin-left: 4vw;
+}
+
+.goods-image img {
+  width: 100%;
+}
+
+.gooos-descr {
+  width: 60%;
+  float: right;
+  margin-right: 4vw;
+}
+
+.goods-title {
+  font-size: 3.7vw;
+  color: black;
+  line-height: 6vw;
+  position: absolute;
+}
+
+.goods-price {
+  font-size: 4vw;
+  margin-top: 12vh;
+  color: red;
+}
+
+.goods-sale {
+  font-size: 3vw;
+  color: #666;
 }
 
 </style>
