@@ -9,7 +9,8 @@
     </div>
     <div class="content">
       <div class="conditions">
-        <div class="condition" :class="{'sortType':sortType === index}" @click="sortTypes(item,index)" v-for="(item,index) in conditions">{{item.name}}</div>
+        <div class="condition" :class="{'sortType':sortType === index}" @click="sortTypes(item,index)" v-for="(item,index) in conditions">{{item.name}}
+        </div>
       </div>
       <router-link class="goods-list" :to="{ name: '详情页'}">
         <div class="goods-item" v-for="(item,index) in goods" @click="">
@@ -22,6 +23,9 @@
         </div>
       </router-link>
     </div>
+   <!--  <div class="back">
+      <span class="icon-go"></span>
+    </div> -->
   </div>
 </template>
 <script>
@@ -74,7 +78,7 @@ export default {
         imageUrl: 'https://img.adidas.com.cn/resources/2019/10/30/15724350857397013.jpg?x-oss-process=image/resize,m_pad,w_500,h_500,limit_0,color_ffffff',
         price: 699.00,
         sale: 111
-      },{
+      }, {
         id: 1,
         name: '足球运动鞋足球运动鞋足球运动鞋足球运动鞋',
         imageUrl: 'https://img.adidas.com.cn/resources/2019/6/10/15601573119544487_500X500.jpg',
@@ -98,7 +102,7 @@ export default {
         imageUrl: 'https://img.adidas.com.cn/resources/2019/10/30/15724350857397013.jpg?x-oss-process=image/resize,m_pad,w_500,h_500,limit_0,color_ffffff',
         price: 699.00,
         sale: 111
-      },{
+      }, {
         id: 1,
         name: '足球运动鞋足球运动鞋足球运动鞋足球运动鞋',
         imageUrl: 'https://img.adidas.com.cn/resources/2019/6/10/15601573119544487_500X500.jpg',
@@ -265,6 +269,68 @@ export default {
 .goods-sale {
   font-size: 3vw;
   color: #666;
+}
+
+.back {
+  width: 7vw;
+  height: 7vw;
+  position: absolute;
+  right: 4vw;
+  bottom: 2vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  text-align: center;
+  z-index: 999;
+}
+
+.back span {
+  display: inline-block;
+  line-height: 7vw;
+  font-size: 20px;
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+.back span:before {
+  content: " ";
+  color: #fff;
+}
+
+.top_arrows {
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid #c3c8d6;
+  border-right: 1px solid #c3c8d6;
+  transform: rotate(-45deg);
+  margin-right: 30px;
+  margin-top: 6px;
+}
+
+.bottom_arrows {
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid #c3c8d6;
+  border-right: 1px solid #c3c8d6;
+  transform: rotate(135deg);
+  margin-right: 30px;
+  margin-top: -6px;
+}
+
+.left_arrows {
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid #c3c8d6;
+  border-right: 1px solid #c3c8d6;
+  transform: rotate(-135deg);
+  margin-right: 10px;
+}
+
+.right_arrows {
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid #c3c8d6;
+  border-right: 1px solid #c3c8d6;
+  transform: rotate(45deg);
 }
 
 </style>

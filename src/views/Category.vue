@@ -29,8 +29,8 @@ export default {
   },
   created () {
     this.$api({
-      method: 'post',
-      url: '/category'
+      method: 'get',
+      url: '/learn/api/v1/store/categories/aside'
     }).then((res) => {
       this.allData = res.data
     }).catch((error) => {

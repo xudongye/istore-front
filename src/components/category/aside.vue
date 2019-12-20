@@ -2,7 +2,7 @@
   <aside class="aside">
     <ul>
       <li v-for="(k,i) in datas" @click='changeTabIndex(i)'>
-        <router-link :to="{path:'/category/'+k.title}" :class='{active:i==tabIndex}' >{{k.title}}</router-link>
+        <router-link :to="{path:'/category/'+k.name}" :class='{active:i==tabIndex}' >{{k.name}}</router-link>
       </li>
     </ul>
 
@@ -49,11 +49,13 @@
           display: block;
           padding: 4vw 0;
           position: relative;
-          font-size: 16px;
+          font-size: 3.5vw;
         }
         .active {
           position: relative;
-          font-size: 22px;
+          font-size: 4vw;
+          font-weight: bold;
+          color: black;
           &::before {
             width: 3px;
             height: 28px;

@@ -47,7 +47,6 @@ import {
 export default {
 
   computed: mapState({
-
     view: state => state.detail.productDatas.view,
     colSelected: state => state.detail.colSelected,
     sizeSelected: state => state.detail.sizeSelected,

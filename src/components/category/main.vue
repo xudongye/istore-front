@@ -1,13 +1,13 @@
 <template lang="html">
   <div class="main">
-    <h2>{{_datas.title}}</h2>
+<!--     <h2>{{_datas.name}}</h2> -->
     <ul>
       <li
-         v-for="(k,i) in _datas.list"
+         v-for="(k,i) in _datas.children"
          :key='i'
       >
         <router-link :to="{name:'详情页'}">
-          <img v-lazy="k.imgPath"><span>{{k.title}}</span>
+          <img v-lazy="k.picUrl"><span>{{k.name}}</span>
         </router-link>
       </li>
     </ul>
@@ -32,8 +32,8 @@ export default {
     },
     _datas (){
       const _datas =  {
-        list:[],
-        title:''
+        children:[],
+        name:''
       }
       return this.datas[this.tabIndex] || _datas
     }
