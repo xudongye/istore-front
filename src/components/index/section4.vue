@@ -7,11 +7,11 @@
     <ul class="section4-list">
       <li v-for="k in list" :key='k.id'>
         <router-link :to="{name:'详情页'}">
-          <img v-lazy="k.imgPath">
-          <p>{{k.intro}}</p>
+          <img v-lazy="k.pic">
+          <p>{{k.content}}</p>
         </router-link>
         <h3>{{k.title}}</h3>
-        <span>$ {{k.price}}</span>
+        <span>$ 999</span>
       </li>
 
     </ul>

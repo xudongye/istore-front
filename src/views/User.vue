@@ -9,7 +9,7 @@
       </header>
       <div class="main">
           <router-link class="my-indent" :to="{ name: ''}">
-              <span class="my-indent-left">我的订单a</span>
+              <span class="my-indent-left">我的订单</span>
               <div class="my-indent-right">
                   <span>全部订单</span>
                   <i class="icon-go"></i>

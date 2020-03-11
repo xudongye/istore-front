@@ -32,7 +32,7 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/learn': {
-                target: 'http://www.lant.ltd',
+                target: 'http://www.kuanghuan.shop',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/learn': '/learn/'

@@ -3,18 +3,18 @@
     <ul class="section3-list">
       <li v-for="k in list" :key='k.id'>
         <div class="section3-list-left">
-          <h4>{{k.title}}</h4>
+          <h4>{{k.name}}</h4>
           <div class="time">
-            <span class="time-num">{{k.dom.num1||'00'}}</span>
+            <span class="time-num">12:00:00</span>
             <span class="time-col">:</span>
-            <span class="time-num">{{k.dom.num2||'00'}}</span>
+            <span class="time-num">12:00:00</span>
             <span class="time-col">:</span>
-            <span class="time-num">{{k.dom.num3||'00'}}</span>
+            <span class="time-num">12:00:00</span>
           </div>
-          <p class="start">Starts at {{k.start}}</p>
+          <p class="start">Starts at 9:00:00</p>
         </div>
         <router-link :to="{name:'分类页'}" class="section3-list-right">
-          <img v-lazy="k.imgPath">
+          <img v-lazy="k.pic">
           <span>${{k.price}}</span>
         </router-link>
       </li>
