@@ -1,6 +1,11 @@
 <template lang="html">
   <div class="search">
-    <mt-search v-model="value" cancel-text="取消" @keyup.enter.native="search()" placeholder="搜索"></mt-search>
+    <mt-search class v-model="value" cancel-text="取消" @keyup.enter.native="search()" placeholder="搜索"></mt-search>
+    <!--    <div id="search">
+      <span class="icon-go" @click="$router.go(-1)"></span>
+      <input type="text" value="iphone 11" />
+      <button>搜索</button>
+    </div> -->
     <div class="history" v-if="words.length > 0">
       <div class="title"><span>搜索历史</span><span class="rubish" @click="remove()"></span></div>
       <div class="word">
@@ -23,15 +28,20 @@
         </div>
       </router-link>
     </div>
-   <!--  <div class="back">
+    <!--  <div class="back">
       <span class="icon-go"></span>
     </div> -->
   </div>
 </template>
 <script>
 import { Search } from 'mint-ui';
+import Header from '@/common/_header.vue';
+import '../assets/fz.less';
+import '../assets/index/style.css';
 export default {
-  components: {},
+  components: {
+    'v-header': Header
+  },
   data() {
     return {
       value: '',
@@ -150,6 +160,10 @@ export default {
     }
   },
   mounted() {
+    let name = this.$route.params.name
+    if (name) {
+      this.value = name
+    }
     let words = localStorage.getItem("words")
     if (words) {
       this.words = JSON.parse(words)
@@ -163,6 +177,40 @@ export default {
 .search {
   width: 100%;
   padding-bottom: 14vw;
+}
+
+.icon-go {
+  display: inline-block;
+  font-size: 23px;
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  float: left;
+  color: black;
+}
+
+#search {
+  width: 100%;
+  height: 35px;
+}
+
+#search input {
+  width: 70%;
+  height: 31px;
+  border: 2px solid #f10215;
+  outline-style: none;
+  /* 消除原来的边框默认属性 */
+  float: left;
+  padding-left: 4px;
+  /* 让文字在搜索的时候距离框4px */
+  color: #888;
+}
+
+#search button {
+  width: 50px;
+  height: 35px;
+  background-color: #f10215;
+  float: left;
+  color: white;
 }
 
 .history {}
